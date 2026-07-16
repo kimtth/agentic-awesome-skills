@@ -258,6 +258,13 @@
 - Hardened automation surfaces beyond the local CLI: `main` CI now runs the unified repo-state sync, tracked web artifacts are refreshed through `sync:web-assets`, release verification now uses a deterministic `sync:release-state` path plus `npm pack --dry-run`, the npm publish workflow reruns those checks before publishing, and a weekly `Repo Hygiene` GitHub Actions workflow now sweeps slow drift on `main`.
 - Added two maintainer niceties on top of the hardening work: `check:warning-budget` freezes the accepted `135` validation warnings so they cannot silently grow, and `audit:maintainer` prints a read-only health snapshot of warning budget, consistency drift, and git cleanliness.
 
+# Maintenance Walkthrough - 2026-07-16 Android Overheating Diagnostics
+
+- Audited the cached third-party `adb-performance` skill and rejected a direct import because its linked source repository is unavailable, its license cannot be verified, and it mixes weak snapshot heuristics with unguarded device mutations.
+- Added the clean-room canonical `diagnose-android-overheating` skill, grounded in current Android and AOSP documentation.
+- Replaced generic “optimization” commands with a read-only-first evidence workflow, controlled comparisons, OEM-aware interpretation, confidence labels, privacy handling, explicit approval gates, rollback requirements, and a hardware-safety stop.
+- Added `references/evidence-and-interpretation.md` for symptom-specific ADB evidence, thermal status interpretation, correlation rules, Batterystats capture discipline, and bugreport privacy.
+
 # Maintenance Walkthrough - 2026-07-16 Tessl Workspace Repair
 
 - Corrected the Skill Review workflow and trusted review helper to use the token-visible `antigravity-awesome-skills` Tessl workspace instead of the renamed repository slug.
