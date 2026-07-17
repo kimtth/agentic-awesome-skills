@@ -65,6 +65,8 @@
   "protectedPaths": [
     "verification/aas-v1/**",
     ".github/workflows/aas-v1-baseline-check.yml",
+    ".github/workflows/aas-v1-product-verifier.yml",
+    ".github/workflows/aas-v1-verifier-harness.yml",
     ".github/CODEOWNERS"
   ],
   "repositorySettings": {
